@@ -1,6 +1,7 @@
 //NAME-RISHU RAJAN
 //REG. N0-2019PGCACA82
 
+#include<bits/stdc++.h>
 #include<iostream>
 #include<vector>
 #include<ctime>
@@ -33,7 +34,7 @@ int ShowReadMenu(const vector<string> &choices) {
 	return ReadInt(1, choices.size());
 }
 
-string GetCurrentTimeDate() {	// src: https://stackoverflow.com/questions/17223096/outputting-date-and-time-in-c-using-stdchrono
+string GetCurrentTimeDate() {	
 	auto now = std::chrono::system_clock::now();
 	auto in_time_t = std::chrono::system_clock::to_time_t(now);
 
@@ -41,8 +42,6 @@ string GetCurrentTimeDate() {	// src: https://stackoverflow.com/questions/172230
 	ss << std::put_time(std::localtime(&in_time_t), "%Y-%m-%d %X");
 	return ss.str();
 }
-
-///////////////////////////////////////////////////
 
 class Book {
 private:
@@ -309,7 +308,6 @@ public:
 
 	// No sense for such a class (manager of objects) to be copyable!
 	// This is a C++ 11 feature that prevents Copy constructor and Assignment Operator (=)from being called. It delete then from the class
-	// https://ariya.io/2015/01/c-class-and-preventing-object-copy#:~:text=There%20are%20three%20ways%20to,have%20its%20instance%20copied%20around.
 	UsersManager(const UsersManager&) = delete;
 	void operator=(const UsersManager&) = delete;
 
